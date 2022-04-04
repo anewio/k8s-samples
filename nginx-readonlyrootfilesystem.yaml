@@ -13,17 +13,16 @@ spec:
     securityContext:
        readOnlyRootFilesystem: true  # required settings
     volumeMounts:
-    - name: var-vol        # required settings
+    - name: var-vol        
       mountPath: /var/run
-    - name: cache-vol      # required settings
+    - name: cache-vol      
       mountPath: /var/cache/nginx
-    - name: run
-      mountPath: /var/run
+    - name: log-vol
+      mountPath: /var/log/nginx
   volumes:
   - name: var-vol
     emptyDir: {}
   - name: cache-vol
     emptyDir: {}
-  - name: run
+  - name: log-vol
     emptyDir: {}
-    
