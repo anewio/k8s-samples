@@ -17,8 +17,13 @@ spec:
       mountPath: /var/run
     - name: cache-vol      # required settings
       mountPath: /var/cache/nginx
+    - name: run
+      mountPath: /var/run
   volumes:
   - name: var-vol
     emptyDir: {}
   - name: cache-vol
     emptyDir: {}
+  - name: run
+    emptyDir: {}
+    
