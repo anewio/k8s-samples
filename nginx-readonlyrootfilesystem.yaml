@@ -1,0 +1,24 @@
+piVersion: v1
+kind: Pod
+metadata:
+  name: tmp-nginx
+spec:
+  containers:
+  - name: web-con
+    image: nginx
+    ports:
+    - containerPort: 80
+      hostPort: 80
+      protocol: TCP
+    securityContext:
+       readOnlyRootFilesystem: true  # required settings
+    volumeMounts:
+    - name: var-vol        # required settings
+      mountPath: /var/run
+    - name: cache-vol      # required settings
+      mountPath: /var/cache/nginx
+  volumes:
+  - name: var-vol
+    emptyDir: {}
+  - name: cache-vol
+    emptyDir: {}
